@@ -4,7 +4,8 @@ var record_bus_index: int
 #var prehravac_bus_index: int
 var record_effect: AudioEffectRecord
 var recording#: AudioStreamSample
-
+var cas = 0
+var limit = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#ProjectSettings.set_setting("audio/driver/enable_input",true)
@@ -21,6 +22,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	cas += delta
+	if cas > limit:
+		cas = 0
+		randomize()
+		limit = randf_range(5,15)
+		$zvuk_prisery.play()
+	
 	if record_effect.is_recording_active():
 	#recording = effect.get_recording()
 		recording = record_effect.get_recording()

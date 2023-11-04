@@ -4,7 +4,7 @@
 
 [sub_resource type="AudioStream" id="AudioStream_7ocib"]
 
-[node name="basnicka" type="AudioStreamPlayer2D"]
+[node name="basnicka" type="AudioStreamPlayer2D" groups=["basnicka"]]
 stream = SubResource("AudioStream_7ocib")
 volume_db = 24.0
 script = ExtResource("1_q0oph")

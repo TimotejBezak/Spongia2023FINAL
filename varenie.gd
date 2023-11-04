@@ -23,8 +23,9 @@ func _on_uvar_button_down():
 				var uvarenec = load("res://item_inventaru.tscn").instantiate()
 				uvarenec.meno = recept[2]
 				uvarenec.icon = load(recept[3])
-				uvarenec.position = Vector2(1400,500)
+				uvarenec.position = Vector2(1450,500)
 				emit_signal("uvaril_sa",uvarenec)
 				$pridavac.item_na_mne.queue_free()
 				$pridavac2.item_na_mne.queue_free()
+				$zvuk.play()
 				break

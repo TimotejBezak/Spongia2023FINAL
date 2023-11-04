@@ -36,7 +36,7 @@ offset_right = 72.0
 offset_bottom = 892.0
 
 [node name="peniaze" type="Node2D" parent="."]
-position = Vector2(1552, 348)
+position = Vector2(1705, 351)
 
 [node name="peniazky" type="Label" parent="peniaze"]
 z_index = 1

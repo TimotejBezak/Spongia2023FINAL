@@ -3,13 +3,17 @@ extends Button
 signal stlacene_tlacidlo_presunut()
 
 @export var kam: int
-var popis = [-1, "izba","les","kamarát","predajna kabatov","elixíry","zahrada","palicka","ist dalej","jaskyna","ist dalej","rebrik","kniznica","nahoda","cakanie","doprava","dolava","doprava","dolava","dolava","rovno","doprava","doprava","rovno","dolava","dolava","dolava","dolava","doprava","doprava","doprava","dolava","doprava","rovno","dolava","rovno","doprava","dolava","doprava","rovno","dolava","doprava","rovno","doprava","rovno","dolava","rovno","doprava","dolava","rovno"]
+var popis = [-1, "izba","les","kamarát","predajna kabatov","elixíry","zahrada","palicka","ist dalej","jaskyna","ist dalej","rebrik","kniznica","nahoda","cakanie","doprava","dolava","doprava","dolava","dolava","rovno","doprava","doprava","rovno","dolava","dolava","dolava","dolava","doprava","doprava","doprava","dolava","doprava","rovno","dolava","rovno","doprava","dolava","doprava","rovno","dolava","doprava","rovno","doprava","rovno","dolava","rovno","doprava","dolava","rovno","vyhrat"]
+var ikony = ["res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png","res://grafika/ikony/icon.png"]
+
 # Called when the node enters the scene tree for the first time.
 var cas
 var limit = 1
 var cas_ukazania
 var som_tlacidlo_naspet = false
+var uz_som_vyhral = false
 func _ready():
+	icon = load(ikony[kam])
 	$Label.text = popis[kam]
 	if som_tlacidlo_naspet and kam > 14:
 		$Label.text = "naspet"
@@ -31,6 +35,10 @@ func _process(delta):
 			$neda_sa.text = ""
 		cas_ukazania -= delta
 		
+#	if global.vyhral_si and !uz_som_vyhral:
+#		uz_som_vyhral = true
+#		cas = 0
+		#emit_signal("stlacene_tlacidlo_presunut")
 #func _on_button_down():
 #	cas = 0
 #	print("tuk")
@@ -58,7 +66,7 @@ func _on_button_down():
 		if kam == 10 and !global.nahucal_si:
 			pokracujem = false
 			povedz_info("prisera ti stoji v ceste",3)
-			
+		
 		if pokracujem:
 			cas = 0
 			emit_signal("stlacene_tlacidlo_presunut")

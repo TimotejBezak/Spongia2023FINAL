@@ -11,13 +11,12 @@ func _process(delta):
 	if cas_ukazania != null:
 		if cas_ukazania <= 0:
 			$info.text = ""
-			pass
 		cas_ukazania -= delta
 
 
 func _on_kupit_button_down():
 	if global.peniaze >= 500:
-		print("vyhral si")
+		get_tree().change_scene_to_file("res://miestnosti//"+str(50)+".tscn")
 	else:
 		povedz_info("nemas dost penazi",1.5)
 

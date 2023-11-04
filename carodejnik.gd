@@ -88,7 +88,7 @@ var krutit_koniec = false
 var krutit_zaciatok = false
 var cas
 var limit = 1.2
-var pocet_framov = 9
+var pocet_framov = 11
 var idx_frame = 0
 @onready var default_obrazok = preload("res://grafika/animacia_carodejnik/wizard1.png")
 func _ready():
@@ -103,11 +103,13 @@ func koniec():
 	krutit_koniec = true
 	cas = 0
 	animacia.reverse()
+	$zvuk1.play()
 #
 func zaciatok():
 	krutit_zaciatok = true
 	animacia.reverse()
 	cas = 0
+	$zvuk2.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

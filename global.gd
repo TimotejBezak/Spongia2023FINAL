@@ -4,14 +4,14 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 var spravne_heslo_zadane = false
 var inventar = []
-var sceny_prvy_krat = [-1,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
+var sceny_prvy_krat = [-1,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
 #var pocet_scen = 14
 var mas_nakalibrovanu_palicku = true#false
 var mam_vyriesene_hadanky = false
 var veci_ktore_uz_niekedy_boli_v_inventari = []
 var zablokovat_presun = false
 var nahucal_si = false
-var peniaze = 34
+var peniaze = 3400
 var bol_si_u_kamarata = true#false
 var mam_hodene_6 = false
 var vyliezol_po_rebriku = false
@@ -66,6 +66,10 @@ func _process(delta):
 # domysliet texty na tlacidlach presunu
 # obchodnik nech ma bublinu, ze kabat stoji 500
 # moznost znova si vypocut basnicky
+# truhlica sa otvori ked zadas heslo
+# hudba nech nejde od zaciatku na kazdej snimke
+# ikonky presunu
+# sudoku male cisla zvecsit
 
 # itemy:
 # semienka rebrika
@@ -84,3 +88,7 @@ func _process(delta):
 
 # detaily:
 # tlacidla nech su ine ked mys hoveruje
+
+# co treba otestovat:
+# zvuk varenie
+# hudbu

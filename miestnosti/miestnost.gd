@@ -17,18 +17,21 @@ signal uvaril_sa(item)
 @onready var inventar = get_node("miestnost/inventar")
 @onready var carodejnik = get_node("miestnost/carodejnik")
 var aktivny_pridavac
+@onready var grg = [preload("res://miestnosti/pozadieles.png"),preload("res://miestnosti/pozadieles2.png"),preload("res://miestnosti/pozadieles3.png"),preload("res://miestnosti/pozadieles4.png"),preload("res://miestnosti/pozadieles5.png"),preload("res://miestnosti/pozadieles6.png"),preload("res://miestnosti/pozadieles7.png")]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$peniaze.text = "peniaze: "#+str(global.peniaze)
-	$miestnost/peniaze/peniazky.text = str(global.peniaze)
 	
 	if !global.sceny_prvy_krat[name.to_int()]:
 		for i in $zbieracie_veci.get_children():
 			if i.meno in global.veci_ktore_uz_niekedy_boli_v_inventari:
 				i.queue_free()
 	else:
-		$basnicka.stream = load($basnicka.path)
-		$basnicka.play()
+		for i in get_children():
+			if i.is_in_group("basnicka"):
+				$basnicka.stream = load($basnicka.path)
+				$basnicka.play()
+				break
 	
 	for i in global.inventar:
 		inventar.get_node("veci").get_node("GridContainer").add_child(i)
@@ -39,11 +42,14 @@ func _ready():
 		i.connect("item_sa_sunie_do_sceny",item_sa_sunie_do_sceny1)
 	#potialto to bolo v inventar.gd
 	
+#	var somvlese = false
 	for i in kam_dalej:
 		var novy = presun_load.instantiate()
 		novy.kam = i
 		novy.connect("stlacene_tlacidlo_presunut",stlacene)
 		tlacidla_presun_tam.add_child(novy)
+#		if novy.kam >= 16 and novy.kam <= 48:
+#			somvlese = true
 	if kam_spet != 0:
 		var novy = presun_load.instantiate()
 		novy.kam = kam_spet
@@ -52,6 +58,9 @@ func _ready():
 		tlacidla_presun_spet.add_child(novy)
 	
 	pozadie.texture = load(obrazok_pozadie)
+	if name.to_int() >= 16 and name.to_int() <= 49:
+		pozadie.texture = grg[(name.to_int())%len(grg)]
+
 	for i in $zbieracie_veci.get_children():
 		i.connect("pridat_do_inventaru",pridat_do_inventara)
 
@@ -102,7 +111,7 @@ func item_sa_sunie_do_sceny1(item):
 	inventar.pridavanie_vypni()
 
 func _process(delta):
-	pass
+	$miestnost/peniaze/peniazky.text = str(global.peniaze)
 
 func stlacene():
 	global.inventar = []

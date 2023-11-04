@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd4lav4fkr7tv"]
+
+[ext_resource type="Script" path="res://miestnosti/vyhralsi.gd" id="1_bocw1"]
+[ext_resource type="PackedScene" uid="uid://csc5nfmtfab1f" path="res://basnicka.tscn" id="1_u11sg"]
+
+[node name="50" type="Node2D"]
+script = ExtResource("1_bocw1")
+
+[node name="basnicka" parent="." instance=ExtResource("1_u11sg")]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "VYHRAL SI"

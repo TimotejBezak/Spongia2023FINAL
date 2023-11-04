@@ -18,7 +18,7 @@ func _process(delta):
 	cas_od_selectu += delta
 	if cas_od_selectu > 0.2:
 		if Input.is_action_just_pressed("lave_mys"):
-			print("tuk", selected)
+#			print("tuk", selected)
 			#if mys_je_dnu == false:
 			if selected != null:
 				selected.icon = selected.obrazok[selected.typ]#

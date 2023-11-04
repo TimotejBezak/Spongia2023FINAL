@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7q1t7gbe5rk6"]
+[gd_scene load_steps=10 format=3 uid="uid://7q1t7gbe5rk6"]
 
 [ext_resource type="PackedScene" uid="uid://dbc3ledxvgnqk" path="res://item_inventaru.tscn" id="1_4fbqx"]
 [ext_resource type="PackedScene" uid="uid://dp0ccj8iaqbkv" path="res://miestnosti/miestnost.tscn" id="1_ffxsq"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://csc5nfmtfab1f" path="res://basnicka.tscn" id="2_55v1v"]
 [ext_resource type="Texture2D" uid="uid://bur2buqyt1tee" path="res://grafika/icon.svg" id="5_n0jit"]
 [ext_resource type="Texture2D" uid="uid://d0hxidhahmhkj" path="res://grafika/itemy/prazdna_flasa.png" id="6_6ftcn"]
+[ext_resource type="Texture2D" uid="uid://cisiyalfy7wlf" path="res://grafika/itemy/lano.png" id="8_6v5e8"]
+[ext_resource type="AudioStream" uid="uid://d10pvinnan3hb" path="res://zvuky/spongia carodejnik.wav" id="8_eknhf"]
 
 [node name="1" type="Node2D"]
 script = ExtResource("1_ypshq")
@@ -31,31 +33,47 @@ offset_bottom = 664.0
 [node name="zbieracie_veci" type="Node2D" parent="."]
 
 [node name="item_inventaru" parent="zbieracie_veci" instance=ExtResource("1_4fbqx")]
-offset_left = 136.0
-offset_top = 376.0
-offset_right = 272.0
-offset_bottom = 512.0
+offset_left = 88.0
+offset_top = 820.0
+offset_right = 224.0
+offset_bottom = 956.0
 icon = ExtResource("5_n0jit")
 meno = "semienko"
 
 [node name="item_inventaru2" parent="zbieracie_veci" instance=ExtResource("1_4fbqx")]
-offset_left = 286.0
-offset_top = 569.0
-offset_right = 337.0
-offset_bottom = 677.0
+offset_left = 1419.0
+offset_top = 940.0
+offset_right = 1470.0
+offset_bottom = 1048.0
 icon = ExtResource("6_6ftcn")
 meno = "prazdna flasa"
 
 [node name="item_inventaru3" parent="zbieracie_veci" instance=ExtResource("1_4fbqx")]
-offset_left = 614.0
-offset_top = 536.0
-offset_right = 672.0
-offset_bottom = 594.0
+offset_left = 395.0
+offset_top = 69.0
+offset_right = 503.0
+offset_bottom = 177.0
+icon = ExtResource("8_6v5e8")
 meno = "lano"
 
 [node name="item_inventaru4" parent="zbieracie_veci" instance=ExtResource("1_4fbqx")]
-offset_left = 1203.0
-offset_top = 483.0
-offset_right = 1261.0
-offset_bottom = 541.0
+offset_left = 416.0
+offset_top = 226.0
+offset_right = 512.0
+offset_bottom = 334.0
 meno = "sada na cistenie"
+
+[node name="hudba" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_eknhf")
+autoplay = true
+
+[node name="tutorial" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="tutorial"]
+offset_left = 700.0
+offset_top = 25.0
+offset_right = 1424.0
+offset_bottom = 103.0
+text = "zide sa ti: lano, prazdna flasa, sada na cistenie, semienka
+
+Zvladnes to vsetko najst a pridat do inventara kliknutim lavym tlacidlom na jednotlive objekty"

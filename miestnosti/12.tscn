@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxdyxx45eyajc"]
+[gd_scene load_steps=7 format=3 uid="uid://cxdyxx45eyajc"]
 
 [ext_resource type="PackedScene" uid="uid://dp0ccj8iaqbkv" path="res://miestnosti/miestnost.tscn" id="1_pncyo"]
 [ext_resource type="Script" path="res://miestnosti/miestnost.gd" id="1_xnlt5"]
 [ext_resource type="PackedScene" uid="uid://jb27l6ru48k4" path="res://hadanky.tscn" id="2_2si4b"]
 [ext_resource type="PackedScene" uid="uid://csc5nfmtfab1f" path="res://basnicka.tscn" id="2_p2g8q"]
 [ext_resource type="Texture2D" uid="uid://bsguuljiu7o4e" path="res://grafika/ghost.png" id="5_22xoq"]
+[ext_resource type="AudioStream" uid="uid://dtnabc0k0mcx7" path="res://zvuky/spongia kopec.wav" id="6_chvrs"]
 
 [node name="12" type="Node2D"]
 script = ExtResource("1_xnlt5")
@@ -26,3 +27,7 @@ z_index = 1
 position = Vector2(1372, 615)
 scale = Vector2(7.1067, 7.1067)
 texture = ExtResource("5_22xoq")
+
+[node name="hudba" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_chvrs")
+autoplay = true

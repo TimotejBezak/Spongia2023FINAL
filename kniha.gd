@@ -5,6 +5,7 @@ var strana_teraz = 0
 var bezi_animacia = false
 var animacia_strany
 var animacia_kam
+var music_position = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$vsetko.visible = false
@@ -29,7 +30,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var v = 2
+	var v = 2.8
 	if bezi_animacia:
 		if animacia_kam == 1:
 			#print(rad_to_deg(animacia_strany[0].skew),animacia_strany[0].visible)
@@ -107,12 +108,19 @@ func otocit(kam):#1 - dopredu, strana sa toci dolava  -1 dozadu, strana sa toci 
 func _on_doprava_button_down():
 	if strana_teraz <= len(strany)-4:
 		otocit(1)
+		$zvuk.play()
 
 func _on_dolava_button_down():
 	if strana_teraz >= 2:
 		otocit(-1)
+		$zvuk.play()
 
 
 func _on_toggle_toggled(button_pressed):
 	$vsetko.visible = button_pressed
 	global.mas_otvorene_noviny = $vsetko.visible
+	if $vsetko.visible:
+		$hudba.play(music_position)
+	else:
+		music_position = $hudba.get_playback_position()
+		$hudba.stop()

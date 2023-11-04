@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cgiwt7qc23kmt"]
+[gd_scene load_steps=24 format=3 uid="uid://cgiwt7qc23kmt"]
 
 [ext_resource type="Script" path="res://kniha.gd" id="1_6t281"]
 [ext_resource type="PackedScene" uid="uid://dc1isisyjj8xu" path="res://strana.tscn" id="2_d6i65"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://cvw0nbyubrqxv" path="res://strany/strana1kr2/strana13kr.tscn" id="15_m3nnb"]
 [ext_resource type="Texture2D" uid="uid://bt00qoy3bk4eu" path="res://next_page.png" id="17_jepl6"]
 [ext_resource type="Texture2D" uid="uid://d4nh8jr4rlxus" path="res://previous_page.png" id="18_40pdt"]
+[ext_resource type="AudioStream" uid="uid://dewptr5bsdjn5" path="res://zvuky/spongia otocenie strany.wav" id="22_tkpkw"]
+[ext_resource type="AudioStream" uid="uid://d1dam7p0hgu4u" path="res://zvuky/spongia noviny hudba.wav" id="23_3nxee"]
 
 [node name="kniha" type="Node2D"]
 z_index = 2
@@ -429,7 +431,6 @@ scale = Vector2(0.8, 0.8)
 focus_mode = 0
 icon = ExtResource("17_jepl6")
 flat = true
-vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="dolava" type="Button" parent="vsetko"]
@@ -441,7 +442,6 @@ scale = Vector2(0.8, 0.8)
 focus_mode = 0
 icon = ExtResource("18_40pdt")
 flat = true
-vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="toggle" type="Button" parent="."]
@@ -454,6 +454,14 @@ focus_mode = 0
 toggle_mode = true
 icon = ExtResource("13_bkvli")
 flat = true
+
+[node name="zvuk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_tkpkw")
+volume_db = 5.261
+
+[node name="hudba" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_3nxee")
+volume_db = -9.369
 
 [connection signal="button_down" from="vsetko/doprava" to="." method="_on_doprava_button_down"]
 [connection signal="button_down" from="vsetko/dolava" to="." method="_on_dolava_button_down"]

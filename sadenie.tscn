@@ -7,7 +7,7 @@
 script = ExtResource("1_4lrbn")
 
 [node name="pridavac" parent="." instance=ExtResource("1_km6f1")]
-offset_left = 319.0
-offset_top = 184.0
-offset_right = 377.0
-offset_bottom = 242.0
+offset_left = 1301.0
+offset_top = 909.0
+offset_right = 1359.0
+offset_bottom = 967.0
